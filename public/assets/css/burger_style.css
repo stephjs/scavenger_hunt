@@ -1,0 +1,177 @@
+* {
+	font-family: arial;
+}
+
+h1, h2, h4 {
+	text-align: center;
+}
+
+img {
+	width: 40%;
+	margin: 0;
+	padding: 0;
+}
+
+#containit {
+	width: 80%;
+	margin: 0 auto;
+}
+
+#miniadd {
+	margin: 0 auto;
+	width: 50%;
+}
+
+
+li {
+  
+  margin: 10px;
+  padding: 5px;
+
+}
+
+li:hover {
+	background: #d3d3d3;
+	border: dashed 1px gray;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+hr {
+	color: #d3d3d3;
+}
+
+
+/*styling the tabs in the body*/
+.label {
+  font-weight: bold;
+}
+
+.create-update-form {
+  background: white;
+  margin: 5px;
+  padding: 5px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 5px;
+}
+
+
+/* Set the size and font of the tab widget */
+.tabGroup {
+    font: 10pt;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+ 
+/* Configure the radio buttons to hide off screen */
+.tabGroup > input[type="radio"] {
+    position: absolute;
+    left:-100px;
+    top:-100px;
+}
+ 
+/* Configure labels to look like tabs */
+.tabGroup > input[type="radio"] + label {
+    /* inline-block such that the label can be given dimensions */
+    display: inline-block;
+ 
+    /* A nice curved border around the tab */
+    border: 1px solid black;
+    border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+     
+    /* the bottom border is handled by the tab content div */
+    border-bottom: 0;
+ 
+    /* Padding around tab text */
+    padding: 5px 10px;
+ 
+    /* Set the background color to default gray (non-selected tab) */
+    background-color:#ddd;
+}
+ 
+/* Focused tabs need to be highlighted as such */
+.tabGroup > input[type="radio"]:focus + label {
+    border:1px dashed black;
+}
+ 
+/* Checked tabs must be white with the bottom border removed */
+.tabGroup > input[type="radio"]:checked + label {
+    background-color: #F8F5E1;
+    font-weight: bold;
+    border-bottom: 1px solid white;
+    margin-bottom: -1px;
+}
+ 
+/* The tab content must fill the widgets size and have a nice border */
+.tabGroup > div {
+    display: none;
+    border: 1px solid black;
+    background-color: #F8F5E1;
+    padding: 10px 10px;
+    height: 100%;
+    overflow: auto;
+     
+    box-shadow: 0 0 20px #444;
+    -moz-box-shadow: 0 0 20px #444;
+    -webkit-box-shadow: 0 0 20px #444;
+     
+    border-radius: 0 5px 5px 5px;
+    -moz-border-radius: 0 5px 5px 5px;
+    -webkit-border-radius: 0 5px 5px 5px;
+}
+ 
+/* This matchs tabs displaying to thier associated radio inputs */
+.tab1:checked ~ .tab1, .tab2:checked ~ .tab2, .tab3:checked ~ .tab3 {
+    display: block;
+}
+
+/*styling the pretty buttons*/
+.myButton {
+	-moz-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #ffffff;
+	box-shadow:inset 0px 1px 0px 0px #ffffff;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f9f9f9), color-stop(1, #e9e9e9));
+	background:-moz-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
+	background:-webkit-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
+	background:-o-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
+	background:-ms-linear-gradient(top, #f9f9f9 5%, #e9e9e9 100%);
+	background:linear-gradient(to bottom, #f9f9f9 5%, #e9e9e9 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#e9e9e9',GradientType=0);
+	background-color:#f9f9f9;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #dcdcdc;
+	display:inline-block;
+	cursor:pointer;
+	color:#666666;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+.myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #e9e9e9), color-stop(1, #f9f9f9));
+	background:-moz-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
+	background:-webkit-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
+	background:-o-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
+	background:-ms-linear-gradient(top, #e9e9e9 5%, #f9f9f9 100%);
+	background:linear-gradient(to bottom, #e9e9e9 5%, #f9f9f9 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e9e9e9', endColorstr='#f9f9f9',GradientType=0);
+	background-color:#e9e9e9;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}

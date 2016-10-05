@@ -1,0 +1,94 @@
+{{!-- scavenger hunt image creds --}}
+<center><img src="http://www.allstaractivities.com/images/Scavenger-hunt1.jpg" alt="Scavenger Hunt"></center>
+
+{{!-- container for the body to make styling easier --}}
+<div id ="containit">
+
+  {{!-- tab and body stuff starts here --}}
+  <div class="tabGroup">
+
+    {{!-- 3 radio style tabs and labels --}}
+    <input type="radio" name="tabGroup1" id="rad1" class="tab1" checked="checked"/>
+    <label for="rad1">Items to Find</label>
+
+    <input type="radio" name="tabGroup1" id="rad2" class="tab2"/>
+    <label for="rad2">Already Found</label>
+
+    <input type="radio" name="tabGroup1" id="rad3" class="tab3"/>
+    <label for="rad3">Add an Item</label>
+
+    <br/>
+
+    {{!-- first tab for items that still need to be found --}}
+    <div class="tab1" id="loststuff">
+      <h2>Items to Find</h2>
+      {{!-- &#x1f50d is replaced with icon for the magnifying glass --}}
+      <h4>Click the &#x1f50d   once you've found an item to move it to the 'Already Found' list.</h4><hr>
+      <ul>
+        {{#each scav}}
+        {{#unless this.found}}
+        
+        <li>
+          <form action="scavlist/update/{{this.id}}?_method=PUT" method="POST">
+            <input type="hidden" name="found" value="true">
+            <button type="submit" class="myButton">&#x1f50d</button> <strong>{{this.item}}</strong>
+          </form>
+        </li>
+
+        {{/unless}}
+        {{/each}}
+
+      </ul>
+
+    </div>
+
+    {{!-- second tab for items that have been found --}}
+    <div class="tab2" id="foundstuff">
+      <h2>Already Found</h2>
+      {{!-- &#x2714 is replaced by icon for heavy check mark --}}
+      <h4>Did you lose the item again? Click the &#x2714   to move the item back to the 'Items to Find' list.</h4><hr>
+
+      <ul>
+        {{#each scav}}
+        {{#if this.found}}
+
+        <li>
+          <form action="scavlist/update/{{this.id}}?_method=PUT" method="POST">
+            <input type="hidden" name="found" value="false">
+            <button type="submit" class="myButton">&#x2714</button> <strong>{{this.item}}</strong>  -  Found on {{this.date_stamp}} 
+          </form>
+
+        </li>
+        {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+
+    {{!-- third tab for adding new items --}}
+    <div class="tab3"id="addstuff">
+
+      <h2>Add an Item</h2><hr>
+      
+      <div id="miniadd">
+        <form class="create-update-form" action="scavlist/add" method="POST">
+
+        <div class="form-group">
+          <label for="itemholder">New Item:</label>
+          <input type="text" id="itemholder" name="item">
+        </div>
+
+        <div class="form-group">
+          <label for="findingstuff">Has it been found?</label><br>
+          <input type="radio" name="found" value="1" checked> Yes! Add it to the 'Already Found' list.<br>
+          <input type="radio" name="found" value="0"> No. Add it to the 'Items to Find' list.
+        </div>
+
+        <button type="submit" class="myButton">Add Item</button>
+
+        </form>
+      </div>
+
+    </div>
+
+  </div>
+</div>
