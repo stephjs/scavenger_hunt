@@ -1,23 +1,27 @@
 //need mysql for storing items in table
 var mysql = require('mysql');
+var connection;
 
-//creating connection
-var connection = mysql.createConnection({
-	port: 3306,
-	host: 'localhost',
-	user: 'root',
-	password: 'vanilla.123',
-	database: 'scavhunt'
-});
+//Jaws DB connection
+if (process.env.JAWSDB_URL) {
+	connection = mysql.createConnection(process.env.JAWSDB_URL);
+//local host connection
+} else {
+	connection = mysql.createConnection({
+		port: 3306,
+		host: 'localhost',
+		user: 'root',
+		password: 'vanilla.123',
+		database: 'scavhunt'
+	});
+}
 
-//checking whether we can connect to mysql and the scavhunt database
 connection.connect(function (err) {
 	if (err) {
-		console.error('There was a connection error: ' + err.stack);
+		console.error('error connecting: ' + err.stack);
 		return;
 	}
-	console.log('Connected as ID: ' + connection.threadId);
+	console.log('connected as id ' + connection.threadId);
 });
 
-//export connection to be used in orm.js
 module.exports = connection;
